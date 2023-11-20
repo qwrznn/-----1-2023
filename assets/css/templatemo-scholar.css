@@ -675,15 +675,16 @@ Banner Style
 }
 
 .main-banner .item-1 {
-  background-image: url(../images/banner-item-01.jpg);
+  /* background-image: url(https://i.pinimg.com/564x/ac/3a/a8/ac3aa8fcd11b943a5cbd83e8c3314d63.jpg); */
+  background-image: url(../images/bg-1.jpg);
 }
 
 .main-banner .item-2 {
-  background-image: url(../images/banner-item-02.jpg);
+  background-image: url(../images/bg-2.jpg);
 }
 
 .main-banner .item-3 {
-  background-image: url(../images/banner-item-03.jpg);
+  background-image: url(../images/bg3.jpg);
 }
 
 .main-banner .item {

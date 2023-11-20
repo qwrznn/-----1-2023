@@ -3,53 +3,45 @@ include "db.php";
 include "header.php";
 include "action.php";
 ?>
-<!-- ***** Main Banner Area Start ***** -->
+
 <div class="main-banner" id="top">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="owl-carousel owl-banner">
-            <div class="item item-1">
-              <div class="header-text">
-                <span class="category">Our Courses</span>
-                <h2>With Scholar Teachers, Everything Is Easier</h2>
-                <p>Scholar is free CSS template designed by TemplateMo for online educational related websites. This layout is based on the famous Bootstrap v5.3.0 framework.</p>
+            <div class="item item-1">  
+ <div class="header-text" ;>
+              <span class="category">Cinema+</span>
+                <h2>Наш кінотеатр</h2>
+                <p>
+Ласкаво просимо в наш сучасний кінотеатр, де кожен візит – це неповторна кінематографічна пригода!</p>
                 <div class="buttons">
-                  <div class="main-button">
-                    <a href="#">Request Demo</a>
-                  </div>
                   <div class="icon-button">
-                    <a href="#"><i class="fa fa-play"></i> What's Scholar?</a>
+                    <a href="#start"><i class="fa fa-play"></i>Почати!</a>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
             <div class="item item-2">
               <div class="header-text">
-                <span class="category">Best Result</span>
-                <h2>Get the best result out of your effort</h2>
-                <p>You are allowed to use this template for any educational or commercial purpose. You are not allowed to re-distribute the template ZIP file on any other website.</p>
+                <span class="category">Cinema+</span>
+                <h2>Комфорт відвідувачів для нас у пріорітеті</h2>
+                <p>Наш кінотеатр створений для комфортного та захоплюючого перегляду фільмів у високій якості. Ми прагнемо забезпечити найкращі умови для наших глядачів, починаючи від сучасного обладнання та закінчуючи затишною атмосферою наших залів.</p>
                 <div class="buttons">
-                  <div class="main-button">
-                    <a href="#">Request Demo</a>
-                  </div>
                   <div class="icon-button">
-                    <a href="#"><i class="fa fa-play"></i> What's the best result?</a>
+                    <a href="#start"><i class="fa fa-play"></i> Почати!</a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item item-3">
               <div class="header-text">
-                <span class="category">Online Learning</span>
-                <h2>Online Learning helps you save the time</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporious incididunt ut labore et dolore magna aliqua suspendisse.</p>
+                <span class="category">Cinema+</span>
+                <h2>Враження</h2>
+                <p>Приходьте до нас і дайте нам можливість зробити ваш вечір незабутнім!</p>
                 <div class="buttons">
-                  <div class="main-button">
-                    <a href="#">Request Demo</a>
-                  </div>
                   <div class="icon-button">
-                    <a href="#"><i class="fa fa-play"></i> What's Online Course?</a>
+                    <a href="#start"><i class="fa fa-play"></i>Почати!</a>
                   </div>
                 </div>
               </div>
@@ -59,77 +51,65 @@ include "action.php";
       </div>
     </div>
   </div>
-<!-- ***** Main Banner Area End ***** -->
-<?php
-$autorized = false;
-if (isset($_POST["go"])) {
-    $login = $_POST["login"];
-    $password = $_POST["pass"];
-    check_role($login, $password) . "<br>";
-    if (check_autorize($login, $password)) {
-        $autorized = true;
-        echo "Hello, $login";
-        if (check_admin($login, $password)) {
-            echo "<a href='hello.php?login=$login'>Просмотр отчета</a>";
-        }
-
-    } else {
-        echo "You are not registered";
-    }
-}
-$user_form = '<form action="' . $_SERVER['PHP_SELF'] . '" method="post" name="autoForm" onsubmit="return verify(this)">
-<input type="text" name="login" placeholder="Input login">
-<input type="password" name="pass" placeholder="Input password">
-<input type="submit" value="Go" name="go">
-</form>';
-
-if (!$autorized) {
-    echo $user_form;
-}
 
 
 
-echo "<h1>Найкращі фільми всіх часів знову у кіно!</h1>"; ?>
+<div id="start">
+</div>
+<div class="section events" id="films">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h6>Вже з наступного понеділка</h6>
+            <h2>Найкращі фільми всіх часів знову у кіно!</h2>
 
-<h3>Сортувати фільми за</h3>
+<h4>Для зручності оберіть сортування</h4>
 <form action="index.php" method="post" name="sort_form">
-    <select name="sort" id="sort" size="1">
-        <option value="name" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "name") echo "selected"; ?> >назвою</option>
-        <option value="director" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "director") echo "selected"; ?>>іменем режисера</option>
-        <option value="genre" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "genre") echo "selected"; ?>>жанру</option>
-        <option value="rating" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "rating") echo "selected"; ?>>рейтингу</option>
-        <option value="studio" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "studio") echo "selected"; ?>>киностудии</option>
-        <option value="year" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "year") echo "selected"; ?>>году выпуска</option>
-        <option value="sessions" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "sessions") echo "selected"; ?>>началу сеанса</option>
-        <option value="price" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "price") echo "selected"; ?>>стоимости билета</option>
+    <select name="sort" id="sort" size="1"  class="form-select-sm">
+        <option value="name" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "name") echo "selected"; ?> >за назвою</option>
+        <option value="director" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "director") echo "selected"; ?>>за іменем режисера</option>
+        <option value="genre" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "genre") echo "selected"; ?>>за жанром</option>
+        <option value="rating" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "rating") echo "selected"; ?>>за рейтингом</option>
+        <option value="studio" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "studio") echo "selected"; ?>>за кіностудією</option>
+        <option value="year" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "year") echo "selected"; ?>>за роком випуску</option>
+        <option value="price" <?php if (isset($_POST["sort"]) && $_POST["sort"] == "price") echo "selected"; ?>>за вартістю квитка</option>
     </select>
-    <input type="submit" name="submit" value="OK">
+    <input type="submit" name="submit" value="OK" class="btn btn-primary my-2">
 </form>
-
+</div>
+</div>
 <?php
 if (isset($_POST['sort'])) {
-    $how_to_sort = $_POST['sort'];
-    sorting($how_to_sort);
+  $how_to_sort = $_POST['sort'];
+  sorting($how_to_sort);
 }
 
 $out = out_arr();
 
 if (count($out) > 0) {
-    foreach ($out as $row) {
-        echo "<div>$row</div>";
-    }
+  foreach ($out as $row) {
+    echo $row;
+               }
 } else {
-    echo "No data...";
+  echo "No data...";
 }
 
 $str_form_search = "
-<div class=\"container\">
-    <h3>Search:</h3>
-    <form name='searchForm' action='index.php' method='post' onSubmit='return overify_login(this);'>
-        <input type='text' name='search' class='form-control'>
-        <input type='submit' name='gosearch' value='Confirm' class='btn btn-secondary my-2'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-12'>
+          <div class='section-heading'>
+    <form name='searchForm' action='index.php' method='post' onSubmit='return overify_login(this);' >
+        <input type='text' name='search' class='form-control' placeholder='Пошук фільмів'>
+        <input type='submit' name='gosearch' value='Confirm' class='btn btn-primary my-2'>
+        <input type='reset' name='clear' value='Reset'  class='btn btn-primary my-2'>
     </form>
-</div>";
+</div>
+</div>
+</div>
+</div>
+";
 
 echo $str_form_search;
 
@@ -137,15 +117,80 @@ if (isset($_POST['gosearch'])) {
     $data = test_input($_POST['search']);
     $out = out_search($data);
 
-// вызов функции out_arr() из action.php для получения массива
     if (count($out) > 0) {
-        foreach ($out as $row) { //вывод массива построчно
+        foreach ($out as $row) { 
             echo "<div>$row</div>";
         }
-    } else // если нет данных
+    } else
     {
-        echo "Nothing found...";
+        echo "<h4>На жаль, на ваш запит інформація відсутня...</h4>";
+    }
+}
+?>
+
+<div class="contact-us section" id="login">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6  align-self-center">
+          <div class="section-heading">
+            <h2>Форма авторизації</h2>
+            <p>Для того, щоб стати повноцінним учасником нашого ком'юніті кіноманов, увійдіть у свій аккаунт</p>
+            <div class="special-offer">
+              <span class="offer"></span>
+              <h4>Ви можете переглядати сайт, не входячи в аккаунт</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-us-content">
+<?php
+  $autorized = false;
+if (isset($_POST["go"])) {
+    $login = $_POST["login"];
+    $password = $_POST["pass"];
+    check_role($login, $password) . "<br>";
+    if (check_autorize($login, $password)) {
+        $autorized = true;
+        echo "<h3>Вітаємо, $login!</h3>";
+        if (check_admin($login, $password)) {
+            echo "Ви зайшли під правами адміністратора";
+        }
+
+    } else {
+        echo "Ви не зареєстровані на нашому сайті";
     }
 }
 
+$user_form = '
+<form id="contact-form" action="' . $_SERVER['PHP_SELF'] . '" method="post" name="autoForm" onsubmit="return verify(this)">
+          <div class="row">
+            <div class="col-lg-12">
+              <fieldset>
+                <input type="text" name="login" placeholder="Логін">
+              </fieldset>
+            </div>
+            <div class="col-lg-12">
+              <fieldset>
+                <input type="password" name="pass" placeholder="Пароль">
+              </fieldset>
+            </div>
+            <div class="col-lg-12">
+              <fieldset>
+                <button type="submit" id="form-submit" class="orange-button" value="Go" name="go">Підтвердити</button>
+              </fieldset>
+            </div>
+          </div>
+        </form>';
+
+if (!$autorized) {
+    echo $user_form;
+}?>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<?php
 include "footer.php";
+?>
